@@ -1,3 +1,12 @@
-export default function Total({parts}) {
-    return <p>Number of exercises {parts[0].exercises + parts[1].exercises + parts[2].exercises}</p>
+export default function Total({ parts }) {
+    const arrayNumberExercises = parts.map((part) => part.exercises)
+    const total = arrayNumberExercises.reduce(
+        (accumulator, currentValue) => accumulator + currentValue, 0,
+    )
+
+  return (
+    <>
+      <p>{`Number of exercises ${total}`}</p>
+    </>
+  );
 }
