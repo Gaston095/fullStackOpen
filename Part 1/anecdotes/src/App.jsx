@@ -16,6 +16,7 @@ const App = () => {
 
   const array = Array(anecdotes.length).fill(0)
   const [copy, setCopy] = useState([...array])
+  const [maxVotes, setMaxVotes] = useState(null)
 
   const generateRandomNumber = () => {
     const randomNumber = Math.floor(Math.random() * anecdotes.length)
@@ -31,10 +32,14 @@ const App = () => {
       {anecdotes[selected]}
       <br />
       <p>{`has ${copy[selected]} votes`}</p>
-      <button onClick={()=> {increaseVote()}}>vote</button>
+      <button onClick={()=> {
+        increaseVote();
+        setMaxVotes(Math.max(...copy))
+        }}>vote</button>
       <button onClick={()=> {generateRandomNumber()}}>next anecdote</button>
-      {console.log(selected)}
-      {console.log(copy)}
+
+      <h1>Anecdote with most votes</h1>
+      {anecdotes[copy.indexOf(maxVotes)]}
     </div>
   )
 }
