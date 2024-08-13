@@ -1,11 +1,11 @@
 export default function CountryDetail({country}) {
-    const languagesArray = Object.values(country[0].languages)
+    const languagesArray = Object.values(country.languages)
     return (
         <>
-            <h1>{country[0].name.common}</h1>
+            <h1>{country.name.common}</h1>
             <br/>
-            <div>{`capital ${country[0].capital}`}</div>
-            <div>{`area ${country[0].area}`}</div>
+            <div>{`capital ${country.capital}`}</div>
+            <div>{`area ${country.area}`}</div>
             <br/>
             <div><strong>languages:</strong></div>
             <ul>
@@ -13,7 +13,7 @@ export default function CountryDetail({country}) {
             </ul>
             <br/>
             <picture>
-                <img height={'150px'} src={country[0].flags.png} alt={country[0].flags.alt}/>
+                <img height={'150px'} src={country.flags.png} alt={country.flags.alt}/>
             </picture>
         </>
     )
